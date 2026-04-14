@@ -1,0 +1,16 @@
+Material_ID,Material_Name,Material_Category,Unit_Price,Standard_Lead_Time_Days
+M001,Component_1,Category B,381.78,18
+M002,Component_2,Category C,53.44,17
+M003,Component_3,Category C,414.23,8
+M004,Component_4,Category A,288.62,17
+M005,Component_5,Category A,420.46,11
+M006,Component_6,Category A,239.24,19
+M007,Component_7,Category B,328.3,10
+M008,Component_8,Category C,196.88,16
+M009,Component_9,Category B,322.39,18
+M010,Component_10,Category A,494.68,10
+M011,Component_11,Category B,96.44,7
+M012,Component_12,Category B,276.7,19
+M013,Component_13,Category A,231.06,6
+M014,Component_14,Category B,353.57,14
+M015,Component_15,Category A,310.14,17
