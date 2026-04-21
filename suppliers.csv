@@ -1,0 +1,11 @@
+Supplier_ID,Supplier_Name,Supplier_Category,Location,Contract_Tier
+S001,Global Link,Raw Materials,Bangalore,Gold
+S002,Prime Parts,Electronics,Mumbai,Silver
+S003,Swift Supply,Packaging,Chennai,Bronze
+S004,Nexus Corp,Raw Materials,Delhi,Gold
+S005,Alpha Mfg,Chemicals,Hyderabad,Silver
+S006,Beta Tech,Electronics,Pune,Bronze
+S007,Orion Ltd,Logistics,Kolkata,Gold
+S008,Zenith Co,Raw Materials,Ahmedabad,Silver
+S009,Apex Inc,Packaging,Surat,Bronze
+S010,Vertex Ltd,Chemicals,Jaipur,Gold
