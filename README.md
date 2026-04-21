@@ -1,32 +1,52 @@
-# P6: Supplier Relationship Management Dashboard
+# P6 - Supplier Relationship Management Dashboard
+## UE23CS342BA1 — Supply Chain Management for Engineers
 
-This project is a comprehensive Supply Chain Management (SCM) tool designed to improve supplier collaboration, track material performance, and predict delivery lead times using Machine Learning.
+### Project Structure
+```
+scm_p6/
+├── app.py              ← Main Streamlit dashboard
+├── generate_data.py    ← Database schema + sample data generator
+├── ml_models.py        ← All 4 ML models
+├── requirements.txt
+└── data/
+    └── srm_database.db ← SQLite database (auto-generated)
+```
 
-## 👥 Team Members
-* **Apoorva Biradar** (PES1UG23CS095) - Database Design, Lead Time ML Model, Procurement Dashboard.
-* **Aparajitha Chandan** (PES1UG23CS094) - Anomaly Detection, Supplier Risk Scoring, Performance Dashboard.
+### Database Schema (7 Tables)
+- **suppliers** — Master supplier registry (10 suppliers, 5 categories, 5 regions)
+- **materials** — Material catalog (20 items across 5 categories)
+- **supplier_materials** — Supplier-material linkage with lead times & negotiated prices
+- **purchase_orders** — 400 POs with order/expected/actual dates, delay tracking
+- **supplier_performance** — 24-month KPI data per supplier (OTD, quality, defect rate)
+- **communications** — 300 interaction records (channel, subject, response time)
+- **quality_incidents** — 150 defect incidents with severity and resolution tracking
 
-## 🚀 Features
-* **Interactive Dashboard:** Built with Streamlit for real-time SCM insights.
-* **AI Lead Time Predictor:** A Random Forest Regressor that predicts delivery dates with an accuracy (MAE) of 4.91 days.
-* **Supplier Scorecard:** Track OTIF (On-Time In-Full) and defect rates across all vendors.
-* **Spend Analysis:** Visual treemap of procurement costs by material category.
-* **Anomaly Detection (Coming Soon):** Identifying outliers in delivery delays and quality failures.
+### ML Models
+| # | Model | Algorithm | Purpose |
+|---|-------|-----------|---------|
+| 1 | Delay Forecasting | Random Forest Regressor | Predict PO delay days |
+| 2 | Anomaly Detection | Isolation Forest | Flag abnormal supplier performance |
+| 3 | Supplier Segmentation | K-Means (k=4) | Tier suppliers strategically |
+| 4 | Performance Forecast | Rolling RF Time Series | 6-month score prediction |
 
-## 🛠️ Tech Stack
-* **Language:** Python 3.12
-* **Database:** SQLite3
-* **Dashboard:** Streamlit, Plotly
-* **Machine Learning:** Scikit-Learn, Joblib, Pandas, Numpy
+### Dashboard Pages (6)
+1. 📊 Executive Overview — KPIs, spend trends, OTD by region
+2. 🏭 Supplier Performance — Per-supplier KPI drill-down, heatmap, lead times
+3. 📦 Orders & Procurement — PO status, monthly spend, delay analysis
+4. 🔬 Quality & Incidents — Defect breakdown, severity, open incidents
+5. 💬 Communications — Channel analytics, response times, volume trends
+6. 🤖 ML Insights — All 4 ML model outputs with explanations
 
-## 📥 Installation & Setup
+### Setup & Run
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
 
-1. **Clone the repository:**
-   git clone [https://github.com/APOORVA595/Supplier-Relationship-Management.git](https://github.com/APOORVA595/Supplier-Relationship-Management.git)
-   cd Supplier-Relationship-Management
+# 2. Generate database (only needed once)
+python generate_data.py
 
-2. **Install dependencies:**
-   pip install -r requirements.txt
+# 3. Launch dashboard
+streamlit run app.py
+```
 
-3. **Run the Dashboard:**
-   python -m streamlit run dashboard_P6.py
+Dashboard opens at: http://localhost:8501
